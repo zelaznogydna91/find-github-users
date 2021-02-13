@@ -4,9 +4,15 @@ const styles = (theme) => ({
     borderRadius: "10px",
     width: "40%",
   },
+  errorMsg: {
+    color: "#ff000090",
+    paddingTop: "12px",
+    fontSize: "14px",
+    textAlign: "center",
+  },
   header: {
     color: "#505050",
-    fontSize: "35px",
+    fontSize: "30px",
     fontWeight: "bolder",
     paddingLeft: "10%",
     transition: "all 0.3s",

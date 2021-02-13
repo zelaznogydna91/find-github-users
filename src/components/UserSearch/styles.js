@@ -8,7 +8,7 @@ const styles = {
   searchInput: {
     fontFamily: "'Roboto', sans-serif",
     color: "#333",
-    fontSize: "2rem",
+    fontSize: "1rem",
     margin: "auto",
     marginTop: "20px",
     marginBottom: "20px",
@@ -46,9 +46,9 @@ const styles = {
     fontFamily: "Roboto, sans-serif",
     fontSize: "larger",
     fontWeight: 300,
-    padding: "0.35em 12rem",
+    padding: ".6rem 5rem",
     textAlign: "center",
-    transition: "all 1s ease 0s",
+    transition: "all .6s ease 0s",
   },
 };
 

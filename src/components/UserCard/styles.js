@@ -1,4 +1,4 @@
-const styles = {
+const styles = (theme) => ({
   anchor: { textDecoration: "none" },
   avatar: {
     verticalAlign: "middle",
@@ -8,13 +8,10 @@ const styles = {
     transition: "all 0.3s",
   },
   cardContainer: {
-    borderRadius: "40px 6px 30px 6px",
-    margin: "1.2rem 5rem",
-    marginTop: "1.2rem",
-    background: "repeating-linear-gradient(to right top, #7F7EFF, #A390E4)",
-    WebkitBoxShadow: "7px 4px 25px -13px rgba(112,112,112,1)",
-    MozBoxShadow: "7px 4px 25px -13px rgba(112,112,112,1)",
-    boxShadow: "7px 4px 25px -13px rgba(112,112,112,1)",
+    borderRadius: "40px 6px 30px",
+    margin: "30px",
+    background: `repeating-linear-gradient(to right top,#${theme.randomColor()}66,#${theme.randomColor()}66)`,
+    boxShadow: "rgb(112 112 112) 7px 4px 25px -13px",
   },
   username: {
     margin: "12px 20px 4px 20px",
@@ -29,6 +26,6 @@ const styles = {
     fontSize: "35px",
     fontWeight: "bolder",
   },
-};
+});
 
 export default styles;

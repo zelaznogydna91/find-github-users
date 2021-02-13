@@ -3,7 +3,7 @@ import UserCard from "../UserCard";
 import UserSearch from "../UserSearch";
 import axios from "axios";
 import styles from "./styles";
-
+import { randomColor } from "../../utils";
 const scrollRefIntoView = (ref) =>
   ref.current &&
   ref.current.scrollIntoView({ behavior: "smooth", block: "center" });
@@ -13,12 +13,13 @@ const getUser = (username) => {
     .get(`https://api.github.com/users/${username}`)
     .then((r) => r.data);
 };
-const randomColor = () => Math.floor(Math.random() * 16777215).toString(16);
 
 const RootContainer = (props) => {
   const rootRef = useRef();
   const histTopRef = useRef();
   const [users, setUsers] = useState([]);
+  const [viewHistory, setViewHistory] = useState(true);
+  const [notFound, setNotFound] = useState();
 
   const addUser = (user) => setUsers((users) => [user, ...users]);
 
@@ -28,10 +29,11 @@ const RootContainer = (props) => {
         if (rootRef.current) {
           addUser(user);
           scrollRefIntoView(histTopRef);
+          setNotFound(false);
         }
       })
       .catch((e) => {
-        if (rootRef.current) alert(`${username} was not found`);
+        if (rootRef.current) setNotFound(true);
       });
   };
 
@@ -40,12 +42,24 @@ const RootContainer = (props) => {
     <div style={styles(theme).bckgd} ref={rootRef}>
       <h1 style={styles(theme).title}>🤓 Find your GitHub friends 🤓</h1>
       <UserSearch onSubmit={handleSearch} />
+      {notFound && (
+        <div style={styles(theme).errorMsg}>
+          {`Your friend was not found please check you have the correct username...`}
+        </div>
+      )}
       {users.length > 0 && (
-        <h1 ref={histTopRef} style={styles(theme).header}>
-          History
+        <h1
+          onClick={() => {
+            setViewHistory(!viewHistory);
+          }}
+          ref={histTopRef}
+          style={styles(theme).header}
+        >
+          {viewHistory ? "Close History" : "Open History"}
         </h1>
       )}
       {users &&
+        viewHistory &&
         users.map((user, index, arr) => (
           <div key={index}>
             <UserCard user={user} />
