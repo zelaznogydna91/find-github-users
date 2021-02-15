@@ -3,10 +3,7 @@ import UserCard from "../UserCard";
 import UserSearch from "../UserSearch";
 import axios from "axios";
 import styles from "./styles";
-import { randomColor } from "../../utils";
-const scrollRefIntoView = (ref) =>
-  ref.current &&
-  ref.current.scrollIntoView({ behavior: "smooth", block: "center" });
+import { randomColor, scrollRefIntoView } from "@zelaznogydna/utils";
 
 const getUser = (username) => {
   return axios

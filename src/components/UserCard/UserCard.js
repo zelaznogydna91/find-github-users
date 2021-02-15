@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "../UserCard/styles";
-import { randomColor } from "../../utils";
+import { randomColor } from "@zelaznogydna/utils";
 
 const UserCard = (props) => {
   const { user } = props;

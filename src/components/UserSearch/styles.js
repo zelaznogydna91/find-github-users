@@ -50,6 +50,5 @@ const styles = {
     textAlign: "center",
     transition: "all .6s ease 0s",
   },
-};
-
+}; 
 export default styles;
